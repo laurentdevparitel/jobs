@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drivy Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Press F12 ...</h1>
+        <script src="../model/Car.js"></script>
+        <script src="../model/Rental.js"></script>
+        <script src="../model/Commission.js"></script>
+        <script src="../model/Options.js"></script>
+        <script src="../model/Action.js"></script>
+
+        <script src="../model/Drivy.js"></script>
+        <script src="../model/DrivyTest.js"></script>
+
+        <script>
+            var level = 4;
+            var levelLabel = "level " + level;
+            document.title = document.title + " ::: " + levelLabel;
+
+            console.log("--- " + levelLabel + " -----------------------------------------------");
+
+            var data = {
+                "cars": [
+                    {"id": 1, "price_per_day": 2000, "price_per_km": 10}
+                ],
+                "rentals": [
+                    {"id": 1, "car_id": 1, "start_date": "2015-12-8", "end_date": "2015-12-8", "distance": 100, "deductible_reduction": true},
+                    {"id": 2, "car_id": 1, "start_date": "2015-03-31", "end_date": "2015-04-01", "distance": 300, "deductible_reduction": false},
+                        {"id": 3, "car_id": 1, "start_date": "2015-07-3", "end_date": "2015-07-14", "distance": 1000, "deductible_reduction": true}
+                    ]
+                };
+                try {
+                    var myDrivy = new Drivy(data);
+                    myDrivy.addDiscount = true;
+                    myDrivy.addCommission = true;
+                    //myDrivy.addDeductibleReduction = true;
+                    myDrivy.compute();
+                    
+                    console.log("--- " + levelLabel + ": output -----------------------------------------------");
+                    console.log(myDrivy.getOutput());
+                }
+                catch (error) {
+                    console.error("Error: ", error);
+                }
+        </script>
+    </body>
+</html>
