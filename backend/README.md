@@ -1,6 +1,8 @@
 # Drivy Backend Challenge
 
- Looking for a job? Check out our [open positions](https://en.drivy.com/jobs).
+ NB (1): Challenge has been accomplished using Javascript end not Ruby (not enough time ....)
+ NB (2): model/ contains all JS Object Models
+ NB (3): to test a level, just open level[n]/index.html in a web browser and press f12 to open JS console
 
 ## Guidelines
 
